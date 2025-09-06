@@ -40,3 +40,15 @@ export type Quiz = {
   vues: number;
   user_id: string;
 };
+
+export type Comment  = {
+  id: number;
+  content: string;
+  user_id: string;
+  quiz_id: string;
+  user_name: string;
+  user_image: string;
+  likes: number;
+  createdAt: string; 
+  updatedAt: string; 
+}

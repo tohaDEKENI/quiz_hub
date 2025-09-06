@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { Quiz } from "@/lib/type";
+import { Quiz,Comment } from "@/lib/type";
 import Description from "./quizDetails/Description";
 import QuizTitle from "./quizDetails/Title";
 import ShowQuiz from "./quizDetails/ShowQuiz";
+import CommentsTextArea from "./comments/CommentsTextarea";
+import GetComments from "./comments/GetComments";
 
 type Props = {
     id: string;
@@ -14,6 +16,8 @@ const ResolveQuiz = ({ id }: Props) => {
     const [quiz, setQuiz] = useState<Quiz>();
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const [comment, setComments] = useState<string>("")
+    const [comments,setCommentsGet] = useState<Comment[]>([]);
 
     useEffect(() => {
         const fetchQuiz = async () => {
@@ -51,6 +55,8 @@ const ResolveQuiz = ({ id }: Props) => {
             <>
                 <QuizTitle title={quiz?.title} isLoading={loading} />
                 <Description quiz={quiz} />
+                <CommentsTextArea comment={comment} setComments={setComments} quiz_id={quiz?.id} setCommentsGet={setCommentsGet}/>
+                <GetComments comments={comments} setCommentsGet={setCommentsGet} quiz_id={quiz?.id}/>
             </>
 
         </div>

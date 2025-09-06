@@ -78,8 +78,8 @@ export default function SignIn() {
                 {
                   email,
                   password,
-                  callbackURL: "/dashboard",
-                  rememberMe: false,
+                  callbackURL: "/quiz",
+                  rememberMe: true,
                 },
                 {
                   onRequest: (ctx) => {
@@ -116,7 +116,7 @@ export default function SignIn() {
                 await signIn.social(
                   {
                     provider: "google",
-                    callbackURL: "/dashboard"
+                    callbackURL: "/quiz"
                   },
                   {
                     onRequest: (ctx) => {
@@ -145,9 +145,8 @@ export default function SignIn() {
           <p className="text-center text-xs text-neutral-500">
             Pas de compte ?{" "}
             <Link
-              href="https://better-auth.com"
+              href="/sign/sign-up"
               className="underline"
-              target="_blank"
             >
               <span className="dark:text-white/70 cursor-pointer">
                 S’inscrire.
