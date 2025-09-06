@@ -18,7 +18,6 @@ export default function QuizList({ quizs, setQuizs }: Props) {
             try {
                 const res = await fetch("/api/quizs")
                 const data = await res.json()
-                console.log(data);
                 const parsedQuizs = data.map((quiz: any) => ({
                     ...quiz,
                     data: JSON.parse(quiz.data),
