@@ -2,10 +2,12 @@ import React from 'react';
 import { Brain } from 'lucide-react';
 import { Quiz } from '@/lib/type';
 import Link from 'next/link';
+
 type Props = {
     quiz: Quiz,
     quizKey: number
 }
+
 export default function QuizCard({ quiz, quizKey }: Props) {
 
     function timeSince(dateString: string) {
@@ -31,6 +33,10 @@ export default function QuizCard({ quiz, quizKey }: Props) {
         return 'À l\'instant';
     }
 
+    // Génère deux couleurs aléatoires
+    const color1 = getRandomColor();
+    const color2 = getRandomColor();
+
     return (
         <Link href={`/quiz/${quiz.id}`}>
             <div className="rounded-lg overflow-hidden shadow-lg bg-base-900 text-white max-w-sm relative font-sans h-full w-full">
@@ -38,7 +44,7 @@ export default function QuizCard({ quiz, quizKey }: Props) {
                 <div
                     className="h-36 w-full flex justify-center items-center"
                     style={{
-                        background: 'linear-gradient(135deg, #f97316, #8b5cf6)',
+                        background: `linear-gradient(135deg, ${color1}, ${color2})`,
                     }}
                 >
                     <Brain className="text-pink-400" size={40} />
@@ -46,9 +52,7 @@ export default function QuizCard({ quiz, quizKey }: Props) {
 
                 {/* Badge durée */}
                 <div className="absolute top-2 right-2 bg-black bg-opacity-60 text-white text-xs rounded-md px-2 py-1 inline-flex items-center">
-                    {Array.isArray(quiz.data) && quiz.data[quizKey]?.choice?.length
-                        ? quiz.data[quizKey].choice.length
-                        : 0} quizs
+                    {Array.isArray(quiz.data) ? quiz.data.length : 0} quizs
                 </div>
 
                 <div className="p-4">
@@ -69,4 +73,14 @@ export default function QuizCard({ quiz, quizKey }: Props) {
             </div>
         </Link>
     );
+}
+
+// ---- Fonction utilitaire ----
+function getRandomColor() {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }

@@ -39,11 +39,23 @@ export async function POST(req: Request) {
  
 
 
-export async function GET(req:Request) {
+function shuffleArray(array: any[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+export async function GET(req: Request) {
     try {
-        const [data] = await connexion.execute("SELECT  * FROM quiz WHERE visibility = 'public' ")
-        return NextResponse.json(data)
+        const [data] = await connexion.execute(
+            "SELECT * FROM quiz WHERE visibility = 'public'"
+        );
+
+        const shuffledData = shuffleArray(data as any[]);
+        return NextResponse.json(shuffledData);
     } catch (error) {
-        return NextResponse.json({message:"Erreur cote serveur"})
+        return NextResponse.json({ message: "Erreur côté serveur" });
     }
 }

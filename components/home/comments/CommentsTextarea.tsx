@@ -16,11 +16,11 @@ interface User {
 type Props = {
     comment: string,
     setComments: React.Dispatch<SetStateAction<string>>,
-    quiz_id?:string,
-    setCommentsGet:React.Dispatch<SetStateAction<Comment[]>>
+    quiz_id?: string,
+    setCommentsGet: React.Dispatch<SetStateAction<Comment[]>>
 }
 
-const CommentsTextArea = ({ comment, setComments ,quiz_id ,setCommentsGet}: Props) => {
+const CommentsTextArea = ({ comment, setComments, quiz_id, setCommentsGet }: Props) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
     const [onFocus, setOnfocus] = useState<boolean>(false)
@@ -69,12 +69,11 @@ const CommentsTextArea = ({ comment, setComments ,quiz_id ,setCommentsGet}: Prop
             </div>
             {onFocus && <div className="flex justify-end space-x-4 text-white ">
                 <Button
-                    className="cursor-pointer"
+                    className="cursor-pointer bg-gray-200 hover:bg-gray-300 text-black"
                     onClick={() => setOnfocus(false)}
 
                 >Annuler</Button>
-                <AddAndRemoveBtn comment={comment} user_id={user?.id} quiz_id={quiz_id} user_image={user?.image} user_name={user?.name} setComments={setComments} setCommentsGet={setCommentsGet}/>
-
+                <AddAndRemoveBtn comment={comment} user_id={user?.id} quiz_id={quiz_id} user_image={user?.image} user_name={user?.name} setComments={setComments} setCommentsGet={setCommentsGet} />
             </div>}
         </div>
     );

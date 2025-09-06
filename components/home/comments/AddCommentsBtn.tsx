@@ -44,7 +44,7 @@ const AddComment = ({ comment, quiz_id, user_image, user_name, setComments,setCo
     return (
         <Button
             disabled={comment.trim() === ""}
-            className="cursor-pointer"
+            className="cursor-pointer bg-blue-500"
             onClick={handleAddComment}
         >{loading ? <span className="loading loading-spinner loading-md"></span> : "Commenter"}</Button>
     );
