@@ -35,8 +35,7 @@ const ResolveQuiz = ({ id }: Props) => {
                 };
 
                 setQuiz(parsedQuiz);
-            } catch (err: any) {
-                console.error(err);
+            } catch (err) {
                 setError("Impossible de charger le quiz.");
             } finally {
                 setLoading(false);

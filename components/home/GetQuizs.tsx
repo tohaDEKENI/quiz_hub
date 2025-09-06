@@ -12,26 +12,30 @@ type Props = {
 export default function QuizList({ quizs, setQuizs }: Props) {
     const [isLoading, setIsloading] = useState<boolean>(false);
 
-    useEffect(() => {
+     useEffect(() => {
         async function get_quizs() {
-            setIsloading(true)
+            setIsloading(true);
             try {
-                const res = await fetch("/api/quizs")
-                const data = await res.json()
-                const parsedQuizs = data.map((quiz: any) => ({
-                    ...quiz,
-                    data: JSON.parse(quiz.data),
-                }));
-                setQuizs(parsedQuizs);
-                setIsloading(false);
-            } catch (error) {
+                const res = await fetch("/api/quizs");
+                // On précise que c'est un tableau de Quiz
+                const data: Quiz[] = await res.json();
 
+                // Si la propriété `data` est une string JSON, on la parse
+                const parsedQuizs: Quiz[] = data.map((quiz) => ({
+                    ...quiz,
+                    data: typeof quiz.data === 'string' ? JSON.parse(quiz.data) : quiz.data,
+                }));
+
+                setQuizs(parsedQuizs);
+            } catch (error) {
+                console.error("Erreur fetch quizs:", error);
             } finally {
-                setIsloading(false)
+                setIsloading(false);
             }
         }
-        get_quizs()
-    }, []);
+        get_quizs();
+    }, [setQuizs]);
+
 
     const liste = Array.from({ length: 30 })
 
