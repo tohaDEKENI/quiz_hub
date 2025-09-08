@@ -6,7 +6,7 @@ import { Quiz } from "@/lib/type";
 
 export async function POST(req: Request) {
     try {
-        const { title, description, data, visibility } = await req.json();
+        const { title, description, data, visibility ,category,dificult} = await req.json();
 
         const session = await auth.api.getSession({
             headers: req.headers,
@@ -19,8 +19,8 @@ export async function POST(req: Request) {
         const quizId = uuidv4();
 
         await connexion.execute(
-            "INSERT INTO quiz (id, title, description, data, visibility, user_id, createAt) VALUES (?, ?, ?, ?, ?, ?, NOW())",
-            [quizId, title, description, JSON.stringify(data), visibility, session.user.id]
+            "INSERT INTO quiz (id, title, description, data, visibility, user_id, createAt,category,dificult) VALUES (?, ?, ?, ?, ?, ?, NOW(),?,?)",
+            [quizId, title, description, JSON.stringify(data), visibility, session.user.id,category,dificult]
         );
 
 

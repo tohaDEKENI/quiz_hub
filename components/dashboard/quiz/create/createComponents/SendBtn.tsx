@@ -8,9 +8,11 @@ type Props = {
     description: string,
     visibility: string,
     valid: boolean,
+    category: string;
+    dificult: string
 }
 
-export const SendBtn = ({ QuizInputs, title, description, visibility, valid }: Props) => {
+export const SendBtn = ({ QuizInputs, title, description, visibility, valid,category,dificult }: Props) => {
     const [isLoading,setIsloading] = useState<boolean>(false)
     const handleSendQuizs = async () => {
         setIsloading(true)
@@ -26,7 +28,9 @@ export const SendBtn = ({ QuizInputs, title, description, visibility, valid }: P
                         title: title,
                         description: description,
                         data: QuizInputs,
-                        visibility: visibility
+                        visibility: visibility,
+                        category:category,
+                        dificult:dificult
                     })
                 })
                 const data = await res.json()

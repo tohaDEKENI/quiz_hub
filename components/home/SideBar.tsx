@@ -13,7 +13,7 @@ const SideBar = () => {
         { icon: <BookOpen size={22} />, label: "Explorer Quiz", href: "/explore" },
         { icon: <Trophy size={22} />, label: "Classements", href: "/leaderboard" },
         { icon: <Star size={22} />, label: "Mes favoris", href: "/favorites" },
-        { icon: <PlusCircle size={22} />, label: "Créer un Quiz", href: "/dashboard/quiz/create" }, // ✅ NOUVEAU
+        //{ icon: <PlusCircle size={22} />, label: "Créer un Quiz", href: "/dashboard/quiz/create" }, // ✅ NOUVEAU
         { icon: <User size={22} />, label: "Mon Profil", href: "/profile" },
     ];
 

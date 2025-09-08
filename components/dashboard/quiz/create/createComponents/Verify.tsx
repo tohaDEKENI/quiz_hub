@@ -11,10 +11,14 @@ type Props = {
     description: string,
     setDescription: React.Dispatch<SetStateAction<string>>
     setVisibility: React.Dispatch<SetStateAction<string>>,
-    visibility:string,
+    visibility: string,
+    setCategory: React.Dispatch<SetStateAction<string>>;
+    setDificult: React.Dispatch<SetStateAction<string>>;
+    category: string;
+    dificult: string
 }
 
-const SendSaveBtn = ({ QuizInputs, title, setTitle, description, setDescription,setVisibility,visibility }: Props) => {
+const SendSaveBtn = ({ QuizInputs, title, setTitle, description, setDescription, setVisibility, visibility, category, dificult, setCategory, setDificult }: Props) => {
     const ref = useRef<HTMLDialogElement>(null)
     const [type, setType] = useState<string>(''); // Titre de la modale
     const [message, setMessage] = useState<string>(''); // Message de la modale
@@ -89,7 +93,10 @@ const SendSaveBtn = ({ QuizInputs, title, setTitle, description, setDescription,
                 </div>
             </dialog>
 
-            <SendComponent QuizInputs={QuizInputs} title={title} setTitle={setTitle} description={description} setDescription={setDescription} valid={valid} setValid={setValid} setVisibility={setVisibility} visibility={visibility}/>
+            <SendComponent QuizInputs={QuizInputs} title={title} setTitle={setTitle} description={description} setDescription={setDescription} valid={valid} setValid={setValid}
+                setVisibility={setVisibility} visibility={visibility}
+                setCategory={setCategory} setDificult={setDificult}
+                dificult={dificult} category={category} />
         </div>
     );
 }

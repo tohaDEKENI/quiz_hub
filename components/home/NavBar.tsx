@@ -11,6 +11,7 @@ import {
 import { useState } from 'react';
 import Sm_Navbar from './Sm_sidebar';
 import Account from './Account';
+import CreateBtn from './CreateBtn';
 
 const dummyData = [
     {
@@ -87,6 +88,7 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center gap-4 p-0 m-0">
+                <CreateBtn />
                 <Account />
             </div>
         </div>

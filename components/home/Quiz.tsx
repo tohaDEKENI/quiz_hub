@@ -37,17 +37,38 @@ export default function QuizCard({ quiz, quizKey }: Props) {
     const color1 = getRandomColor();
     const color2 = getRandomColor();
 
+    async function vueIncrement(id: string) {
+        try {
+            const res = await fetch("/api/quizs/updateVue", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id }),
+            });
+
+            if (!res.ok) {
+                throw new Error("Erreur lors de l'incrémentation des vues");
+            }
+
+            const data = await res.json();
+            console.log("Vues mises à jour :", data.vues);
+            return data.vues;
+        } catch (error) {
+            console.error("Erreur dans vueIncrement :", error);
+            return null;
+        }
+    }
+
     return (
-        <Link href={`/quiz/${quiz.id}`}>
+        <Link href={`/quiz/${quiz.id}`} onClick={() => vueIncrement(quiz.id)}>
             <div className="rounded-lg overflow-hidden shadow-lg bg-base-900 text-white max-w-sm relative font-sans h-full w-full">
                 {/* Fond en gradient */}
                 <div
-                    className="h-36 w-full flex justify-center items-center"
+                    className="h-20 w-full flex justify-center items-center"
                     style={{
                         background: `linear-gradient(135deg, ${color1}, ${color2})`,
                     }}
                 >
-                    <Brain className="text-pink-400" size={40} />
+                    <div className="logo-icon p-2">Q</div>
                 </div>
 
                 {/* Badge durée */}
@@ -60,13 +81,24 @@ export default function QuizCard({ quiz, quizKey }: Props) {
                         {quiz.title}
                     </h3>
                     <p className="text-gray-400 text-sm my-1">
-                        QuizMaster &middot; {timeSince(quiz.createAt)}
+                        <span className='font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-orange-600'>
+                            QuizHub
+                        </span> &middot; {timeSince(quiz.createAt)}
                     </p>
 
-                    <div className="flex items-center gap-2 mt-2 text-sm text-gray-300">
-                        <span>👥 {quiz.vues} participants</span>
-                        <span className="bg-red-600 px-2 py-0.5 rounded-full text-xs font-semibold">
-                            DIFFICILE
+                    <div className="flex items-center gap-2 mt-2 text-sm text-gray-00">
+                        <span className='text-gray-400'>👥 {quiz.vues} vue{quiz.vues > 1 ? 's' : ''}</span>
+                        <span
+                            className={`px-2 py-0.5 rounded-full text-xs font-semibold ${quiz.dificult === "Facile"
+                                ? "bg-green-500"
+                                : quiz.dificult === "Moyen"
+                                    ? "bg-yellow-500"
+                                    : quiz.dificult === "Difficile"
+                                        ? "bg-red-600"
+                                        : "bg-gray-400" // couleur par défaut si valeur inconnue
+                                }`}
+                        >
+                            {quiz.dificult}
                         </span>
                     </div>
                 </div>

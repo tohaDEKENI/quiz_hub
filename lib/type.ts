@@ -39,6 +39,8 @@ export type Quiz = {
   updatedAt: string; // ou Date
   vues: number;
   user_id: string;
+  category:string;
+  dificult:string
 };
 
 export type Comment  = {
