@@ -59,11 +59,11 @@ const Navbar = () => {
 
             </div>
 
-            <div className="flex-1 max-w-xl mx-4 relative">
+            <div className="flex-1 max-w-xl mx-4 relative hidden md:block">
                 <label className="input input-bordered flex items-center gap-2 w-full">
                     <input
                         type="text"
-                        className="grow"
+                        className="grow "
                         placeholder="Rechercher"
                         value={search}
                         onChange={(e) => handleSearch(e.target.value)}

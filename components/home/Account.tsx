@@ -48,7 +48,7 @@ const Account = () => {
     return (
       <div>
         <Link href={"/sign/sign-in"}>
-          <button className="px-4 py-2 rounded-full border border-blue-500 text-blue-500 hover:bg-blue-50 flex items-center gap-2 font-medium text-sm transition">
+          <button className="px-2 py-2 md:py-2 rounded-full border border-blue-500 text-blue-500 hover:bg-blue-50 flex items-center gap-2 font-medium text-sm transition">
             <User className="w-5 h-5" />
             Se connecter
           </button>

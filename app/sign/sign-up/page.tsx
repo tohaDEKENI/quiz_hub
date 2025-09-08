@@ -42,7 +42,7 @@ export default function SignUp() {
 	};
 
 	return (
-		<Card className="z-50 rounded-md rounded-t-none max-w-md shadow-md m-4 lg:m-0">
+		<Card className="z-50 rounded-md rounded-t-none max-w-md shadow-md m-4 lg:m-0 border-none">
 			<CardHeader>
 				<CardTitle className="text-lg md:text-xl">Sign Up</CardTitle>
 				<CardDescription className="text-xs md:text-sm">
