@@ -11,18 +11,18 @@ export const auth = betterAuth({
     emailAndPassword: {
         enabled: true,
     },
-    socialProviders:{
+    socialProviders: {
         google: {
             clientId: process.env.GOOGLE_CLIENT_ID as string,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-    },
+        },
     },
     session: {
         expiresIn: 60 * 60 * 24 * 7,
         cookie: {
             httpOnly: true,
-            secure: true,
-            sameSite: "none",
+            secure: process.env.NODE_ENV === "production", // HTTPS seulement en prod
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
         },
     },
 })
