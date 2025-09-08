@@ -1,6 +1,6 @@
 'use client'
 
-import { PackagePlus,FilePlus } from 'lucide-react'
+import { FilePlus, List, Users, BarChart3 } from "lucide-react";
 import Link from 'next/link'
 
 type Props = {
@@ -9,20 +9,24 @@ type Props = {
 
 const Navigation = ({ isOpen }: Props) => {
   const nav = [
-    { icon: <FilePlus />, name: 'Creee un quiz', href: '/dashboard/quiz/create' },
-    { icon: <FilePlus />, name: 'Creee un quiz', href: '/dashboard/quiz/create' }
-  ]
+    { icon: <FilePlus size={22} />, name: "Créer un Quiz", href: "/dashboard/quiz/create" },
+    { icon: <List size={22} />, name: "Mes Quiz", href: "/dashboard/quiz" },
+    { icon: <Users size={22} />, name: "Utilisateurs", href: "/dashboard/users" },
+    { icon: <BarChart3 size={22} />, name: "Statistiques", href: "/dashboard/stats" },
+  ];
 
   return (
     <ul
-      className={`hidden md:block menu bg-base-200 rounded-box h-full pt-10 transition-all duration-200 
-        overflow-hidden space-y-4 ${
-        isOpen ? 'w-72' : 'w-20'
-      }`}
+      className={`hidden md:flex flex-col bg-white shadow-md rounded-xl h-full pt-8 px-2 transition-all duration-300
+        overflow-hidden space-y-3  ${isOpen ? 'w-64' : 'w-20'}`}
     >
       {nav.map((n, k) => (
         <li key={k}>
-          <Link href={n.href} className={`flex items-center gap-2 btn font-bold text-xl `}>
+          <Link
+            href={n.href}
+            className={`flex items-center gap-3 px-4 py-3 rounded-lg 
+              hover:bg-gray-100 transition-colors duration-200 font-medium text-gray-700`}
+          >
             {n.icon}
             {isOpen && <span>{n.name}</span>}
           </Link>

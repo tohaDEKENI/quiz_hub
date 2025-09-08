@@ -9,7 +9,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isOpen, setIsopen] = useState<boolean>(false);
+  const [isOpen, setIsopen] = useState<boolean>(true);
 
   return (
     <div className="h-screen w-full flex flex-col overflow-hidden">

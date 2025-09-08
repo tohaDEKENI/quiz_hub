@@ -3,15 +3,18 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, Home, PlayCircle, Download, User } from 'lucide-react';
+import { Trophy, BookOpen, Star, PlusCircle } from "lucide-react";
 
 const SideBar = () => {
     const [sidebarExpanded, setSidebarExpanded] = useState(false);
 
     const menuItems = [
-        { icon: <Home size={22} />, label: 'Accueil', href: '/quiz' },
-        { icon: <PlayCircle size={22} />, label: 'Shorts', href: '/shorts' },
-        { icon: <User size={22} />, label: 'Abonnements', href: '/subscriptions' },
-        { icon: <Download size={22} />, label: 'Downloads', href: '/downloads' },
+        { icon: <Home size={22} />, label: "Accueil", href: "/quiz" },
+        { icon: <BookOpen size={22} />, label: "Explorer Quiz", href: "/explore" },
+        { icon: <Trophy size={22} />, label: "Classements", href: "/leaderboard" },
+        { icon: <Star size={22} />, label: "Mes favoris", href: "/favorites" },
+        { icon: <PlusCircle size={22} />, label: "Créer un Quiz", href: "/dashboard/quiz/create" }, // ✅ NOUVEAU
+        { icon: <User size={22} />, label: "Mon Profil", href: "/profile" },
     ];
 
     return (

@@ -16,7 +16,7 @@ const Create = () => {
     return (
         <div className="h-10/12">
             <Title>Cree un quiz</Title>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-3">
                 <SingleCeateButton quizInputs={quizInputs} setQuizinputs={setQuizinputs} />
                 <MultipleCreateButton quizInputs={quizInputs} setQuizinputs={setQuizinputs} />
             </div>

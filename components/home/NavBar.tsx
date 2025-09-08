@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import Sm_Navbar from './Sm_sidebar';
+import Account from './Account';
 
 const dummyData = [
     {
@@ -51,8 +52,8 @@ const Navbar = () => {
         <div className="navbar bg-base-100 shadow-md px-1 flex justify-between items-center w-full z-40">
             <div className="flex items-center gap-4 logo">
                 <Sm_Navbar />
-                <div className="logo-icon">Q</div>
-                <span className="text-xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-orange-600">
+                <div className="logo-icon p-2">Q</div>
+                <span className="text-lg md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-orange-600">
                     QuizHub
                 </span>
 
@@ -86,9 +87,7 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center gap-4 p-0 m-0">
-                <button className="btn btn-ghost btn-circle p-0 m-0">
-                    <UserCircle size={28} />
-                </button>
+                <Account />
             </div>
         </div>
     );

@@ -2,6 +2,7 @@ import { connexion } from "@/lib/connexion";
 import { NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
 import { auth } from "@/lib/auth";
+import { Quiz } from "@/lib/type";
 
 export async function POST(req: Request) {
     try {
@@ -39,11 +40,23 @@ export async function POST(req: Request) {
  
 
 
-export async function GET(req:Request) {
+function shuffleArray(array: Quiz[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+export async function GET(req: Request) {
     try {
-        const [data] = await connexion.execute("SELECT  * FROM quiz WHERE visibility = 'public' ")
-        return NextResponse.json(data)
+        const [data] = await connexion.execute(
+            "SELECT * FROM quiz WHERE visibility = 'public'"
+        );
+
+        const shuffledData = shuffleArray(data as Quiz[]);
+        return NextResponse.json(shuffledData);
     } catch (error) {
-        return NextResponse.json({message:"Erreur cote serveur"})
+        return NextResponse.json({ message: "Erreur côté serveur" });
     }
 }
