@@ -10,7 +10,7 @@ type Props = {
 const Navigation = ({ isOpen }: Props) => {
   const nav = [
     { icon: <FilePlus size={22} />, name: "Créer un Quiz", href: "/dashboard/quiz/create" },
-    { icon: <List size={22} />, name: "Mes Quiz", href: "/dashboard/quiz" },
+    { icon: <List size={22} />, name: "Mes Quiz", href: "/dashboard/quiz/my_quiz" },
     { icon: <Users size={22} />, name: "Utilisateurs", href: "/dashboard/users" },
     { icon: <BarChart3 size={22} />, name: "Statistiques", href: "/dashboard/stats" },
   ];
