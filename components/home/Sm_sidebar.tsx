@@ -8,11 +8,11 @@ import { Trophy, BookOpen, Star, PlusCircle } from "lucide-react";
 const Sm_Navbar = () => {
   const menuItems = [
     { icon: <Home size={22} />, label: "Accueil", href: "/quiz" },
-    { icon: <BookOpen size={22} />, label: "Explorer Quiz", href: "/explore" },
-    { icon: <Trophy size={22} />, label: "Classements", href: "/leaderboard" },
-    { icon: <Star size={22} />, label: "Mes favoris", href: "/favorites" },
-    { icon: <PlusCircle size={22} />, label: "Créer un Quiz", href: "/dashboard/quiz/create" }, // ✅ NOUVEAU
-    { icon: <User size={22} />, label: "Mon Profil", href: "/profile" },
+    { icon: <BookOpen size={22} />, label: "Explorer Quiz", href: "#" },
+    { icon: <Trophy size={22} />, label: "Classements", href: "#" },
+    { icon: <Star size={22} />, label: "Mes favoris", href: "#" },
+    //{ icon: <PlusCircle size={22} />, label: "Créer un Quiz", href: "#" }, // ✅ NOUVEAU
+    { icon: <User size={22} />, label: "Mon Profil", href: "#" },
   ];
   return (
     <div className="drawer md:hidden m-0">
