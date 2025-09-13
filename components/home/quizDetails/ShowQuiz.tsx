@@ -123,7 +123,7 @@ const ShowQuiz = ({ quiz }: Props) => {
 
 
     return (
-        <div className="space-y-6 bg-white p-6 rounded shadow-md max-w-3xl mx-auto w-full">
+        <div className="space-y-6 bg-base-300 p-6 rounded shadow-md max-w-3xl mx-auto w-full">
             {/* Titre de la question */}
             <h2 className="text-2xl font-bold text-gray-800">
                 {commpteur + 1}. {currentQuestion.title}
@@ -152,7 +152,7 @@ const ShowQuiz = ({ quiz }: Props) => {
                         >
                             <input
                                 type={currentQuestion.type === "unique" ? "radio" : "checkbox"}
-                                name={`input-${commpteur}`}
+                                name={`input-${commpteur + index * Math.random()*100}`}
                                 value={value}
                                 checked={isChecked}
                                 onChange={() => handleSelect(value)}

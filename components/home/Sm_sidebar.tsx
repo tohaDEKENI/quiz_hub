@@ -8,7 +8,7 @@ import { Trophy, BookOpen, Star, PlusCircle } from "lucide-react";
 const Sm_Navbar = () => {
   const menuItems = [
     { icon: <Home size={22} />, label: "Accueil", href: "/quiz" },
-    { icon: <BookOpen size={22} />, label: "Explorer Quiz", href: "#" },
+    { icon: <BookOpen size={22} />, label: "Explorer Quiz", href: "/quiz/explore-quizzes" },
     { icon: <Trophy size={22} />, label: "Classements", href: "#" },
     { icon: <Star size={22} />, label: "Mes favoris", href: "#" },
     //{ icon: <PlusCircle size={22} />, label: "Créer un Quiz", href: "#" }, // ✅ NOUVEAU

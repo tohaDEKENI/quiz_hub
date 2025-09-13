@@ -1,6 +1,6 @@
 type Props = {
     title?: string;
-    isLoading: boolean;
+    isLoading?: boolean;
 };
 
 const QuizTitle = ({ title, isLoading }: Props) => {

@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📘 QuizHub
 
-## Getting Started
+Une application de quiz interactive développée avec **Next.js**, permettant aux utilisateurs de tester leurs connaissances, suivre leurs performances et progresser dans un environnement moderne et responsive.
 
-First, run the development server:
+---
+
+## 🚀 Aperçu
+
+**QuizHub** propose une expérience complète autour des quiz, avec :
+
+- Système d'authentification sécurisé avec better-auth
+- Création et gestion de quiz (admin)
+- Participation avec correction en temps réel
+- Tableau de bord personnalisé
+- Statistiques détaillées et classement
+
+---
+
+## ✨ Fonctionnalités principales
+
+- 🔐 **Authentification** – Inscription et connexion sécurisée (Better-auth)
+- 📝 **Création & gestion de quiz** – Interface admin pour gérer les questions
+- 🎯 **Participation interactive** – Correction immédiate, feedback en temps réel
+- 📊 **Classement** – Affichage des meilleurs scores/joueurs
+- 📈 **Statistiques** – Graphiques dynamiques via Recharts
+- 🌙 **Mode clair / sombre** – Thème personnalisable
+- 🎨 **UI moderne** – Tailwind CSS + daisyUI + shadcn
+- 💾 **Sauvegarde des données** – Mysql 
+
+---
+
+## 🛠️ Stack technique
+
+### 🖥️ Frontend
+- [Next.js](https://nextjs.org/) – Framework React
+- [Tailwind CSS](https://tailwindcss.com/) – Design rapide et responsive
+
+### ⚙️ Backend
+- [Mysql](https://www.mysql.com/) – Base de données relationnelle
+- [Next.js API Routes / Server Actions](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) – Logique côté serveur
+- [Nodemailer](https://nodemailer.com/about/) – Envoi d'e-mails 
+
+### 🧰 Outils & Qualité
+- [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) – Linting et formatage
+
+---
+
+## 📂 Structure du projet
+
+quiz-app/
+├── app/ # Pages (App Router)
+│ ├── quiz/ # Pages liées aux quiz
+│ ├── auth/ # Pages d'authentification
+│ └── dashboard/ # Tableau de bord utilisateur
+├── components/ # Composants réutilisables
+├── lib/ # Fonctions utilitaires (auth, db, etc.)
+├── prisma/ # Schéma Prisma + seed
+├── public/ # Images et assets
+├── styles/ # Fichiers CSS globaux
+├── tests/ # Tests unitaires
+├── .env.example # Exemple de configuration
+├── package.json
+├── README.md
+└── tsconfig.json
+
+## ⚙️ Installation et démarrage
+
+### 1️⃣ Cloner le projet
 
 ```bash
+git clone https://github.com/ton-github/quiz-app.git
+cd quiz-app
+
+## Installer les dépendances
+
+npm install
+# ou
+yarn install
+
+### .env.exemple
+
+DATABASE_URL="postgresql://user:password@localhost:5432/quizdb"
+NEXTAUTH_SECRET="un_secret_pour_nextauth"
+NEXTAUTH_URL="http://localhost:3000"
+EMAIL_SERVER_USER="ton_email@gmail.com"
+EMAIL_SERVER_PASSWORD="mot_de_passe_application"
+
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

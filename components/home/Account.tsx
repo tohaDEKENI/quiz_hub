@@ -76,7 +76,7 @@ const Account = () => {
         {/* Menu déroulant façon YouTube */}
         <ul
           tabIndex={0}
-          className="dropdown-content z-[1] shadow-lg bg-white rounded-xl w-72 overflow-hidden"
+          className="dropdown-content z-[1] shadow-lg bg-base-300 rounded-xl w-72 overflow-hidden"
         >
           {/* Profil */}
           <li className="p-4 flex items-center gap-3 border-b">

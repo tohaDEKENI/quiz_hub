@@ -1,6 +1,7 @@
 import { SetStateAction } from "react";
 import UserProfile from "../user/UserPropfile";
 import Sm_AdminNavbar from "./Sm_navbar";
+import ThemeSwap from "../home/theme-swap";
 type Props = {
     isOpen: boolean
     setIsopen: React.Dispatch<SetStateAction<boolean>>
@@ -27,6 +28,7 @@ const Navbar = ({ isOpen, setIsopen }: Props) => {
                 </div>
             </div>
             <div className="flex-none">
+                <ThemeSwap />
                 <UserProfile />
             </div>
         </div>

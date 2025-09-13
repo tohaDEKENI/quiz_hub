@@ -24,7 +24,7 @@ export default function RootLayout({
           <Navigation isOpen={isOpen} />
         </div>
 
-        <div className="flex-1 overflow-y-auto bg-gray-50 p-4 h-full">
+        <div className="flex-1 overflow-y-auto bg-gray- p-4 h-full">
           {children}
         </div>
       </div>

@@ -17,7 +17,7 @@ const Navigation = ({ isOpen }: Props) => {
 
   return (
     <ul
-      className={`hidden md:flex flex-col bg-white shadow-md rounded-xl h-full pt-8 px-2 transition-all duration-300
+      className={`hidden md:flex flex-col shadow-md rounded-xl h-full pt-8 px-2 transition-all duration-300
         overflow-hidden space-y-3  ${isOpen ? 'w-64' : 'w-20'}`}
     >
       {nav.map((n, k) => (
