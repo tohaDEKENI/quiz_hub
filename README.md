@@ -79,7 +79,7 @@ yarn install
 
 ### .env.exemple
 
-DATABASE_URL="postgresql://user:password@localhost:5432/quizdb"
+DATABASE_URL="mysql://user:password@localhost:5432/quizdb"
 NEXTAUTH_SECRET="un_secret_pour_nextauth"
 NEXTAUTH_URL="http://localhost:3000"
 EMAIL_SERVER_USER="ton_email@gmail.com"
