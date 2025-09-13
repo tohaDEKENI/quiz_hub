@@ -59,7 +59,7 @@ const QuizExplore = () => {
             <div className="carousel carousel-vertical rounded-box h-[600px] w-[700px] shadow-xl">
                 {quizs.map((quiz, index) => (
                     <div className="carousel-item h-full flex flex-col m-4" key={quiz.id ?? index}>
-                        <p className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 drop-shadow-lg mt-6 mb-8">
+                        <p className="text-xl md:text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 drop-shadow-lg mt-6 mb-8">
                             {quiz.title}
                         </p>
                         <ShowQuiz quiz={quiz} />
