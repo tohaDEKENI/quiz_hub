@@ -77,8 +77,8 @@ const SendSaveBtn = ({ QuizInputs, title, setTitle, description, setDescription,
 
 
     return (
-        <div className="flex justify-end gap-4">
-            <button className="btn btn-primary" onClick={handleSend}>Ajouter</button>
+        <div className="flex justify-end gap-4 p-4">
+            <button className="btn btn-primary" onClick={handleSend}>Cree votre quiz</button>
             <button className="btn btn-primary">Brouillon</button>
 
             <dialog ref={ref} className="modal">

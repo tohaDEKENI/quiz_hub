@@ -77,7 +77,7 @@ export default function QuizCard({ quiz, quizKey }: Props) {
                 </div>
 
                 <div className="p-4">
-                    <h3 className="font-semibold text-lg text-black">
+                    <h3 className="font-semibold text-lg text-gray-500">
                         {quiz.title}
                     </h3>
                     <p className="text-gray-400 text-sm my-1">

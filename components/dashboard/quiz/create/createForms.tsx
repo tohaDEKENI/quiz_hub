@@ -11,7 +11,7 @@ type Props = {
 const CreateForm = ({ QuizInputs, setQuizinputs }: Props) => {
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border border-gray-200 h-full p-4 overflow-y-auto
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border border-gray-200 h- p-4 overflow-y-auto
         ">
             {
                 QuizInputs.map((quizInputs, groupkey) => (
@@ -22,14 +22,6 @@ const CreateForm = ({ QuizInputs, setQuizinputs }: Props) => {
                     </div>
                 ))
             }
-            <button
-                onClick={() => {
-                    console.log(QuizInputs)
-                }}
-                className="btn"
-            >
-                Voir
-            </button>
         </div>
     );
 }

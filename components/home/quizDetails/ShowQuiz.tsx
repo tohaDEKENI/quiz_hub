@@ -123,9 +123,14 @@ const ShowQuiz = ({ quiz }: Props) => {
 
 
     return (
-        <div className="space-y-6 bg-base-300 p-6 rounded shadow-md max-w-3xl mx-auto w-full">
+        <div className="space-y-6 bg-black/20 backdrop-blur-sm p-6 rounded shadow-md max-w-3xl mx-auto w-full"
+            style={{
+                backgroundImage: "url('/bg.png')",
+                backgroundSize: "cover",
+            }}
+        >
             {/* Titre de la question */}
-            <h2 className="text-2xl font-bold text-gray-800">
+            <h2 className="text-2xl font-bold text-gray-800 text-center">
                 {commpteur + 1}. {currentQuestion.title}
             </h2>
 
@@ -148,11 +153,11 @@ const ShowQuiz = ({ quiz }: Props) => {
                     return (
                         <label
                             key={index}
-                            className={`flex items-center p-3 rounded cursor-pointer transition-all duration-200 space-x-3 ${bgColor}`}
+                            className={`flex items-center p-3 rounded-xl cursor-pointer transition-all duration-200 space-x-3  ${bgColor}`}
                         >
                             <input
                                 type={currentQuestion.type === "unique" ? "radio" : "checkbox"}
-                                name={`input-${commpteur + index * Math.random()*100}`}
+                                name={`input-${commpteur + index * Math.random() * 100}`}
                                 value={value}
                                 checked={isChecked}
                                 onChange={() => handleSelect(value)}

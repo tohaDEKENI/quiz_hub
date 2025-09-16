@@ -12,36 +12,50 @@ type Props = {
     dificult: string
 }
 
-export const SendBtn = ({ QuizInputs, title, description, visibility, valid,category,dificult }: Props) => {
-    const [isLoading,setIsloading] = useState<boolean>(false)
+export const SendBtn = ({ QuizInputs, title, description, visibility, valid, category, dificult }: Props) => {
+    const [isLoading, setIsloading] = useState<boolean>(false)
     const handleSendQuizs = async () => {
         setIsloading(true)
         try {
-            if (title === "") {
-                alert("titre vide")
+            if (title.trim() === "") {
+                alert("Le titre est vide !");
                 return;
-            } else {
-                const res = await fetch("/api/quizs", {
-                    method: "POST",
-                    headers: { 'Content-Type': "applicatio/json" },
-                    body: JSON.stringify({
-                        title: title,
-                        description: description,
-                        data: QuizInputs,
-                        visibility: visibility,
-                        category:category,
-                        dificult:dificult
-                    })
-                })
-                const data = await res.json()
-                alert(data.message)
-                console.log(data)
             }
-        } catch (error) {
 
-        }finally{
-            setIsloading(false)
+            if (visibility.trim() === "") {
+                alert("La visibilité est vide !");
+                return;
+            }
+
+            if (category.trim() === "") {
+                alert("La catégorie est vide !");
+                return;
+            }
+
+            const res = await fetch("/api/quizs", {
+                method: "POST",
+                headers: { 'Content-Type': "application/json" },
+                body: JSON.stringify({
+                    title,
+                    description,
+                    data: QuizInputs,
+                    visibility,
+                    category,
+                    dificult: dificult, // ⚠️ orthographe "difficulty" ?
+                }),
+            });
+
+            const data = await res.json();
+            alert(data.message);
+            console.log(data);
+
+        } catch (error) {
+            console.error("Erreur lors de la création du quiz :", error);
+            alert("Une erreur est survenue.");
+        } finally {
+            setIsloading(false);
         }
+
 
     }
     return (
@@ -50,7 +64,7 @@ export const SendBtn = ({ QuizInputs, title, description, visibility, valid,cate
                 onClick={handleSendQuizs}
                 className="btn btn-primary rounded-md"
             >
-                {isLoading ? <span className="loading loading-spinner loading-md"></span>: "Envoyer le quiz"}
+                {isLoading ? <span className="loading loading-spinner loading-md"></span> : "Envoyer le quiz"}
             </button>
         </div>
     );

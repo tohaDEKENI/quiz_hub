@@ -32,7 +32,12 @@ const QuizExplore = () => {
     }, []);
 
     return (
-        <div className="relative min-h-screen flex items-center justify-center bg-base-200 mx-4">
+        <div className="h-full flex items-center justify-center  mx-4 "
+            style={{
+                backgroundImage: "url('/bg_explorer.png')",
+                backgroundSize: "cover",
+            }}
+        >
             {/* 🔽 Message d'indication de scroll */}
             {showHint && (
                 <div className="absolute top-10 flex flex-col items-center animate-bounce text-gray-700">
@@ -56,10 +61,12 @@ const QuizExplore = () => {
             )}
 
             {/* Carrousel */}
-            <div className="carousel carousel-vertical rounded-box h-[600px] w-[700px] shadow-xl">
+            <div className="carousel carousel-vertical rounded-box h-[600px] w-[700px] shadow-xl bg-black/20 backdrop-blur-sm  mx-2"
+             
+            >
                 {quizs.map((quiz, index) => (
                     <div className="carousel-item h-full flex flex-col m-4" key={quiz.id ?? index}>
-                        <p className="text-xl md:text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 drop-shadow-lg mt-6 mb-8">
+                        <p className="text-xl md:text-4xl font-extrabold text-center text-black drop-shadow-lg mt-6 mb-8">
                             {quiz.title}
                         </p>
                         <ShowQuiz quiz={quiz} />

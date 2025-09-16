@@ -147,8 +147,6 @@ export const SendComponent = ({ setValid, valid, description, setDescription, ti
                             </form>
 
                             <SendBtn title={title} description={description} visibility={visibility} QuizInputs={QuizInputs} valid={valid} dificult={dificult} category={category} />
-                            <button className="btn" onClick={() => console.log(category,dificult)}>VOir</button>
-
                         </div>
                     </div>
                 </dialog>
