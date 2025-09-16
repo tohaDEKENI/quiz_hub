@@ -36,7 +36,7 @@ const AutherQuiz = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
             {
                 quizs.map((quiz, key) => (
-                    <QuizCard quiz={quiz} quizKey={key} />
+                    <QuizCard key={key} quiz={quiz} quizKey={key} />
                 ))
             }
 
